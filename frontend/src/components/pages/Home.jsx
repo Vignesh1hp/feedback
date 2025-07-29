@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 const colors = {
@@ -21,7 +21,7 @@ const Home = () => {
     setHoverValue(value);
   };
 
-  const handleMouseLeave = (value) => {
+  const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
   return (
@@ -37,7 +37,7 @@ const Home = () => {
           <input type="email" name="email" placeholder="Enter Your emailID" />
         </div>
         <div>
-          <label htmlFor="contact">Name</label>
+          <label htmlFor="contact">Phone</label>
           <input type="text" name="contact" placeholder="Enter Phone Number" />
         </div>
 
@@ -70,14 +70,54 @@ const Home = () => {
                 onClick={() => {
                   handleClick(index + 1);
                 }}
-                onMouseOver={()=>{
-                  handleMouseHover(index+1)
+                onMouseOver={() => {
+                  handleMouseHover(index + 1);
                 }}
                 onMouseLeave={handleMouseLeave}
               />
             );
           })}
         </div>
+
+        <div>
+          <label htmlFor="recommend">Would you recommend us?</label>
+          <input type="radio" name="recommend" id="recommend" />
+          Yes
+          <input type="radio" name="recommend" id="recommend" />
+          No
+        </div>
+
+        <div>
+          <label htmlFor="contactMethod">Contact Methods</label>
+          <input type="checkbox" />
+          Email
+          <input type="checkbox" />
+          Phone
+          <input type="checkbox" />
+          Whatsapp
+        </div>
+
+        <div>
+          <label htmlFor="message">Message</label>
+          <br />
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Enter a message"
+          ></textarea>
+        </div>
+
+        <div>
+          <input type="checkbox" id="agreeToTerms" />
+          <label htmlFor="agreeToTerms">
+            I agree to the terms and conditions
+          </label>
+        </div>
+
+        <button>Reset</button>
+        <button>Submit</button>
       </form>
     </div>
   );
