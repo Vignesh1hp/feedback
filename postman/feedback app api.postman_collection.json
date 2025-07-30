@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "ba6ec079-be23-474a-ab4e-3ba51ab8984a",
+		"name": "feedback app api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38459780"
+	},
+	"item": [
+		{
+			"name": "Create Feedback",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"contact\": \"9876543210\",\r\n  \"feedbackType\": \"bugReport\",\r\n  \"rating\": 4,\r\n  \"recommend\": \"Yes\",\r\n  \"contactMethods\": [\"Email\", \"phone\"],\r\n  \"message\": \"Great app!\",\r\n  \"agreeToTerms\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Feedbacks",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Feedback",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Jane Doe\",\r\n  \"email\": \"jane@example.com\",\r\n  \"contact\": \"9999999999\",\r\n  \"feedbackType\": \"suggestion\",\r\n  \"rating\": 5,\r\n  \"recommend\": \"No\",\r\n  \"contactMethods\": [\"whatsapp\"],\r\n  \"message\": \"I suggest better UI.\",\r\n  \"agreeToTerms\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/feedback/6889b842302f717bb67a22c5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"feedback",
+						"6889b842302f717bb67a22c5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Feedback",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/feedback/6889b842302f717bb67a22c5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"feedback",
+						"6889b842302f717bb67a22c5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
