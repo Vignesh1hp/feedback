@@ -32,20 +32,55 @@ const Feedbacks = () => {
   };
 
   const handleUpdate = async (id) => {
-    const updatedName = prompt("Enter new name:");
-    const updatedEmail = prompt("Enter new email:");
+    const existing = feedbacks.find((f) => f._id === id);
 
-    if (updatedName && updatedEmail) {
-      try {
-        await fetch(`http://localhost:8080/api/feedback/${id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: updatedName, email: updatedEmail }),
-        });
-        fetchFeedbacks();
-      } catch (error) {
-        console.error("Update error:", error);
-      }
+    const updatedName = prompt("Enter new name:", existing.name);
+    const updatedEmail = prompt("Enter new email:", existing.email);
+    const updatedContact = prompt("Enter new contact:", existing.contact);
+    const updatedRating = prompt("Enter rating (1-5):", existing.rating);
+    const updatedRecommend = prompt("Recommend? (Yes/No):", existing.recommend);
+    const updatedMessage = prompt("Enter message:", existing.message);
+
+    const errors = [];
+
+    if (!updatedName || updatedName.trim() === "")
+      errors.push("Name is required");
+    if (!updatedEmail || !/^\S+@\S+\.\S+$/.test(updatedEmail))
+      errors.push("Valid email required");
+    if (updatedContact && !/^\d{10}$/.test(updatedContact))
+      errors.push("Contact must be 10 digits");
+    if (
+      !updatedRating ||
+      isNaN(updatedRating) ||
+      updatedRating < 1 ||
+      updatedRating > 5
+    )
+      errors.push("Rating must be between 1 and 5");
+    if (!updatedRecommend) errors.push("Recommendation is required");
+    if (updatedMessage && updatedMessage.length > 300)
+      errors.push("Message max 300 characters");
+
+    if (errors.length > 0) {
+      alert("Validation errors:\n" + errors.join("\n"));
+      return;
+    }
+
+    try {
+      await fetch(`http://localhost:8080/api/feedback/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: updatedName,
+          email: updatedEmail,
+          contact: updatedContact,
+          rating: updatedRating,
+          recommend: updatedRecommend,
+          message: updatedMessage,
+        }),
+      });
+      fetchFeedbacks();
+    } catch (error) {
+      console.error("Update error:", error);
     }
   };
 

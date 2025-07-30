@@ -5,4 +5,9 @@
 - state management for all the input fields in the form.
 - handleChange function will handle the dynamically changing values in the form input fields.
 - handleSubmit will handle the submission of the form.
-- using cors() to 
+- Used react-router-dom package for routing after submitting the form.
+- CRUD operations implemented
+- external styles provided.
+- database level validations and api level validation then form validations are completed.
+- POSTMAN data exported.
+- Pushed the code to github.
