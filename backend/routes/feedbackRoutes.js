@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
   if (message && message.length > 300) errors.push("Message max 300 characters");
   if (!agreeToTerms) errors.push("Must agree to terms");
 
+  // error
   if (errors.length > 0) {
     return res.status(400).json({ errors });
   }

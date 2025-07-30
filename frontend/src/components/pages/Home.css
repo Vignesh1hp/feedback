@@ -1,4 +1,4 @@
-/* === Global Reset and Base Styles === */
+/* === Global Reset === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -136,7 +136,7 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* === Responsive Tweaks === */
+/* === Responsive === */
 @media (max-width: 600px) {
   form {
     padding: 20px;

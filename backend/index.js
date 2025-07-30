@@ -18,6 +18,8 @@ app.get("/api/feedback", (req, res) => {
   res.json(feedbackData);
 });
 
+
+// testing purpose
 app.get("/", (req, res) => {
   res.send("hello world");
 });

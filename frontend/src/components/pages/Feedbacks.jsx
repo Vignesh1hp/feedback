@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Feedbacks.css";
-
+// feedback page
 const Feedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [search, setSearch] = useState("");
@@ -17,7 +17,7 @@ const Feedbacks = () => {
       .then((data) => setFeedbacks(data))
       .catch((err) => console.error("Error fetching feedbacks:", err));
   };
-
+  // handling deleting feedback
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this feedback?")) {
       try {
@@ -30,7 +30,7 @@ const Feedbacks = () => {
       }
     }
   };
-
+  // handling update feedback datas
   const handleUpdate = async (id) => {
     const existing = feedbacks.find((f) => f._id === id);
 
