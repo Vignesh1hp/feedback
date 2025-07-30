@@ -14,6 +14,10 @@ app.use(express.json());
 
 app.use("/api/feedback", feedbackRoutes);
 
+app.get("/api/feedback", (req, res) => {
+  res.json(feedbackData);
+});
+
 app.get("/", (req, res) => {
   res.send("hello world");
 });

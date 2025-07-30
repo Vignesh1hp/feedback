@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
+
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
 
 const Home = () => {
+  const navigate = useNavigate();
   const stars = Array(5).fill(0);
 
   const [currentValue, setCurrentValue] = useState(0);
@@ -73,7 +76,7 @@ const Home = () => {
       });
 
       if (response.ok) {
-        alert("Feedback submitted successfully!");
+        // alert("Feedback submitted successfully!");
         setFormData({
           name: "",
           email: "",
@@ -86,6 +89,7 @@ const Home = () => {
           agreeToTerms: false,
         });
         setCurrentValue(0);
+        navigate("/feedback");
       } else {
         alert("Failed to submit feedback.");
       }
