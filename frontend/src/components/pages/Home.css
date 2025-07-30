@@ -1,116 +1,147 @@
-/* feedbackForm.css */
+/* === Global Reset and Base Styles === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
+  background-color: #f0f2f5;
   color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
+/* === Header === */
 h1 {
   text-align: center;
-  margin-top: 40px;
-  color: #333;
+  color: #007bff;
   font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
 }
 
+/* === Form Container === */
 form {
-  max-width: 700px;
-  margin: 30px auto;
+  max-width: 720px;
+  margin: auto;
   background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 30px 40px;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-form div {
-  margin-bottom: 20px;
+/* === Form Groups === */
+.form-group {
+  margin-bottom: 25px;
 }
 
-.contact-methods{
-  
-}
-
-label {
+.form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
+  color: #333;
 }
 
+/* === Inputs, Selects, Textarea === */
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 select,
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 14px 16px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
+input:focus,
 select:focus,
 textarea:focus {
+  background-color: #fff;
   border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
   outline: none;
 }
 
 textarea {
   resize: vertical;
+  min-height: 100px;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-  margin-right: 10px;
-  margin-left: 0;
+/* === Inline (Checkbox/Radio) Groups === */
+.form-group.inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 
-.star-rating {
+.form-group.inline label {
   display: flex;
   align-items: center;
-  gap: 5px;
-  margin-top: 10px;
+  font-weight: 500;
 }
 
-.star-rating svg {
+/* === Checkbox & Radio === */
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
   cursor: pointer;
-  transition: color 0.2s;
 }
 
-button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
+/* === Star Ratings === */
+.star-ratings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
 }
 
-button:hover{
-  background-color:#3bff0a;
-  transition-duration: 1s;
+/* === Contact Methods Group === */
+.contact-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
+/* === Error Messages === */
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* === Submit Button === */
 button[type="submit"] {
   background-color: #007bff;
   color: white;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-button[type="button"] {
-  background-color: #6c757d;
-  color: white;
-}
-
-button[type="button"]:hover {
-  background-color: #5a6268;
+/* === Responsive Tweaks === */
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
 }
